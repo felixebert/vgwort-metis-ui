@@ -6,10 +6,10 @@
 	};
 
 	mui.url = function(path) {
-		if (isLive()) {
-			return path;
-		} else {
-			return 'http://localhost:8080/metis-admin' + path;
+		var url = '/metis-api' + path;
+		if (!isLive()) {
+			url = 'http://localhost:8080' + url;
 		}
+		return url;
 	};
 })(mui);
