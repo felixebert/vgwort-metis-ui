@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 		},
 		devserver: {
 			options: {
-				port: 8091
+				port: 8092
 			}
 		},
 		testacular: {
