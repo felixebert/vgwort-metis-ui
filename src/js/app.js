@@ -1,10 +1,17 @@
-var sgs = {};
-var landkreise = {};
+var mui = {};
 
-(function(sgs) {
+(function(mui) {
 	'use strict';
 
-	sgs.init = function() {
-		sgs.map.init();
-	};
-})(sgs);
+	var appModule = angular.module('mui', ['pixelList']);
+
+	appModule.config(function($routeProvider) {
+		$routeProvider.when('/pixelList', {
+			templateUrl: 'partials/pixelList.html',
+			controller: 'PixelListCtrl'
+		});
+		$routeProvider.otherwise({
+			redirectTo: '/pixelList'
+		});
+	});
+})(mui);
