@@ -1,1 +1,35 @@
-test
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Artikel</th>
+			<th>Pixel-Code</th>
+			<th>zugeordnet am</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="pixelLink in pixelLinks">
+			<td><a href="{{pixelLink.url}}">{{pixelLink.url}}</a></td>
+			<td>{{pixelLink.pixel.publicId}}</td>
+			<td>{{pixelLink.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><strong>Statistik</strong></p>
+
+<table class="table table-bordered table-condensed table-close-columns">
+	<tbody>
+		<tr>
+			<td>abgerufene Pixel:</td>
+			<td>{{stats.numberOfPixels}}</td>
+		</tr>
+		<tr>
+			<td>davon verknüpft:</td>
+			<td>{{stats.numberOfLinkedPixels}}</td>
+		</tr>
+		<tr>
+			<td>Vorrat:</td>
+			<td>{{stats.numberOfUnlinkedPixels}}</td>
+		</tr>
+	</tbody>
+</table>

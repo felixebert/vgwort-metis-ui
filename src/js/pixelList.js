@@ -2,10 +2,23 @@
 	'use strict';
 	var pixelListModule = angular.module('pixelList', []);
 
+	mui.statistics = {
+		get: function($http, $scope) {
+			var onSuccess = function(data) {
+				$scope.stats = data;
+			};
+
+			$http({
+				method: 'GET',
+				url: mui.url('/pixelStatistic')
+			}).success(onSuccess);
+		}
+	};
+
 	mui.pixelList = {
 		get: function($http, $scope) {
 			var onSuccess = function(data) {
-				$scope.drivers = data;
+				$scope.pixelLinks = data;
 			};
 
 			$http({
@@ -16,8 +29,10 @@
 	};
 
 	pixelListModule.controller('PixelListCtrl', function($scope, $http) {
-		$scope.pixels = [];
+		$scope.pixelLinks = [];
+		$scope.stats = {};
 
 		mui.pixelList.get($http, $scope);
+		mui.statistics.get($http, $scope);
 	});
 })(angular, mui);
