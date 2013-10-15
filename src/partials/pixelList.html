@@ -3,13 +3,15 @@
 		<tr>
 			<th>Artikel</th>
 			<th>Pixel-Code</th>
-			<th>zugeordnet am</th>
+			<th>gemeldet</th>
+			<th class="column-created-at">zugeordnet am</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr data-ng-repeat="pixelLink in pixelLinks">
 			<td><a href="{{pixelLink.url}}">{{pixelLink.url}}</a></td>
-			<td>{{pixelLink.pixel.publicId}}</td>
+			<td><a href="#/pixel/{{pixelLink.pixel.publicId}}" data-ng-show="pixelLink.submitted == 'Ja'">{{pixelLink.pixel.publicId}}</a><span data-ng-show="pixelLink.submitted == 'Nein'">{{pixelLink.pixel.publicId}}</span></td>
+			<td>{{pixelLink.submitted}}</td>
 			<td>{{pixelLink.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}</td>
 		</tr>
 	</tbody>

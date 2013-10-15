@@ -4,27 +4,23 @@
 
 	mui.statistics = {
 		get: function($http, $scope) {
-			var onSuccess = function(data) {
-				$scope.stats = data;
-			};
-
 			$http({
 				method: 'GET',
 				url: mui.url('/pixelStatistic')
-			}).success(onSuccess);
+			}).success(function(data) {
+				$scope.stats = data;
+			});
 		}
 	};
 
 	mui.pixelList = {
 		get: function($http, $scope) {
-			var onSuccess = function(data) {
-				$scope.pixelLinks = data;
-			};
-
 			$http({
 				method: 'GET',
 				url: mui.url('/pixelLinks')
-			}).success(onSuccess);
+			}).success(function(data) {
+				$scope.pixelLinks = data;
+			});
 		}
 	};
 
