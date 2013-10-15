@@ -11,3 +11,6 @@ body {
 .table-close-columns {
 	width: auto;
 }
+.column-created-at {
+	width: 155px;
+}

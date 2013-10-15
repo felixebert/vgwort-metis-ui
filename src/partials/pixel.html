@@ -1,0 +1,18 @@
+<h2>Pixel {{pixel.publicId}}</h2>
+
+<p><strong>Status</strong></p>
+<p>{{pixel.reportedAt | date:'dd.MM.yyyy HH:mm:ss'}}</p>
+<p><br /></p>
+
+<p><strong>Titel</strong>
+<p>{{pixel.title}}</p>
+<p><br /></p>
+
+<p><strong>Autor</strong></p>
+<p>{{pixel.author}}</p>
+<p><br /></p>
+
+<p><strong>Text</strong></p>
+<p><span data-ng-bind-html-unsafe="pixel.text"></span></p>
+<p><br /></p>
+
