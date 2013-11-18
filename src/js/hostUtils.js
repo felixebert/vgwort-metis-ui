@@ -6,7 +6,7 @@
 	};
 
 	mui.url = function(path) {
-		var url = '/metis-admin' + path;
+		var url = '/metis-api' + path;
 		if (!isLive()) {
 			url = 'http://localhost:8080' + url;
 		}

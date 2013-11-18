@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Pixel-Code (öffentlich)</th>
+			<th>Pixel-Code (privat)</th>
+			<th>Autor</th>
+			<th class="column-created-at">erfasst am</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="text in texts">
+			<td><a href="#/text/{{text.id}}">{{text.id}}</a></td>
+			<td>{{text.pixel.publicId}}</td>
+			<td>{{text.pixel.privateId}}</td>
+			<td>{{text.author}}</td>
+			<td>{{text.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+		</tr>
+	</tbody>
+</table>

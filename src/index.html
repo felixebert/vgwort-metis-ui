@@ -16,10 +16,11 @@
 <!-- endbuild -->
 </head>
 <body data-ng-app="mui">
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-inverse navbar-fixed-top" data-navbar>
 		<a class="navbar-brand" href="#">VG-Wort Anbindung</a>
 		<ul class="nav navbar-nav">
-			<li class="active"><a>Pixel-Liste</a></li>
+			<li data-ng-class="{active: path == '/textList'}"><a href="/textList">Erfasste Texte</a></li>
+			<li data-ng-class="{active: path == '/stats'}"><a href="/stats">Statistik</a></li>
 		</ul>
 	</div>
 
@@ -31,9 +32,11 @@
 	<script src="lib/angular.js"></script>
 	<script src="lib/angular-resource.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/directives/navbar.js"></script>
 	<script src="js/hostUtils.js"></script>
 	<script src="js/pixel.js"></script>
-	<script src="js/pixelList.js"></script>
+	<script src="js/textList.js"></script>
+	<script src="js/stats.js"></script>
 	<!-- endbuild -->
 </body>
 </html>
