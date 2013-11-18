@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 	'use strict';
+	var modRewrite = require('connect-modrewrite');
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		uglify: {
@@ -95,11 +97,6 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
-		devserver: {
-			options: {
-				port: 8092
-			}
-		},
 		testacular: {
 			unit: {
 				options: {
@@ -118,9 +115,22 @@ module.exports = function(grunt) {
 			prod: {
 				options: {
 					src: "dist/",
-					dest: "/var/www/opendatalab/public/projects/geojson-utilities",
+					dest: "/var/www/schreibfabrik/mogelpower.de/vgwort",
 					host: "ursa.if-core.de",
 					syncDestIgnoreExcl: true
+				}
+			}
+		},
+		connect: {
+			server: {
+				options: {
+					port: 8092,
+					base: 'src',
+					middleware: function(connect, options) {
+						return [modRewrite(['!\\.html|\\.js|\\.css|\\png|\\jpg|\\gif|\\pdf|\\txt|\\json$ /index.html']),
+							connect.static(require('path').resolve(options.base))];
+					},
+					keepalive: true
 				}
 			}
 		}
@@ -134,10 +144,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-connect-rewrite');
 	grunt.loadNpmTasks('grunt-jsonmin');
 	grunt.loadNpmTasks('grunt-rev');
 	grunt.loadNpmTasks('grunt-usemin');
-	grunt.loadNpmTasks('grunt-devserver');
 	grunt.loadNpmTasks('grunt-testacular');
 	grunt.loadNpmTasks('grunt-rsync');
 

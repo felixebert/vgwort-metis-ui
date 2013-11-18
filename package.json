@@ -1,6 +1,10 @@
 {
   "name": "metis-admin-ui",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixebert/vgwort-metis-ui"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -16,9 +20,10 @@
     "grunt-rev": "~0.1.0",
     "grunt-usemin": "~0.1.10",
     "grunt-jsonmin": "~0.2.4",
-    "grunt-devserver": "~0.4.1",
     "grunt-testacular": "~0.3.0",
-    "grunt-rsync": "~0.2.0"
+    "grunt-rsync": "~0.2.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "connect-modrewrite": "~0.5.11"
   },
   "engines": {
     "node": ">=0.8.0"
