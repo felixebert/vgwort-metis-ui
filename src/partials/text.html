@@ -1,18 +1,46 @@
-<h2>Pixel {{pixel.publicId}}</h2>
+<h1>Text {{text.id}}</h1>
 
-<p><strong>Status</strong></p>
-<p>{{pixel.reportedAt | date:'dd.MM.yyyy HH:mm:ss'}}</p>
-<p><br /></p>
-
-<p><strong>Titel</strong>
-<p>{{pixel.title}}</p>
-<p><br /></p>
-
-<p><strong>Autor</strong></p>
-<p>{{pixel.author}}</p>
-<p><br /></p>
-
-<p><strong>Text</strong></p>
-<p><span data-ng-bind-html-unsafe="pixel.text"></span></p>
-<p><br /></p>
-
+<table class="table table-bordered table-striped">
+	<tbody>
+		<tr>
+			<th style="width:180px;">ID</th>
+			<td>{{text.id}}</td>
+		</tr>
+		<tr>
+			<th>Autor</th>
+			<td>{{text.author}}</td>
+		</tr>
+		<tr>
+			<th>Pixel-Code (öffentlich)</th>
+			<td>{{text.pixel.publicId}}</td>
+		</tr>
+		<tr>
+			<th>Pixel-Code (privat)</th>
+			<td>{{text.pixel.privateId}}</td>
+		</tr>
+		<tr>
+			<th>Pixel-Host</th>
+			<td>{{text.pixel.host}}</td>
+		</tr>
+		<tr>
+			<th>erfasst am</th>
+			<td>{{text.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+		</tr>
+		<tr>
+			<th>URL(s)</th>
+			<td>
+				<ul data-ng-repeat="url in urls">
+					<li>{{url}}</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>Meldungs-Titel</th>
+			<td>{{grabbedData.title}}</td>
+		</tr>
+		<tr>
+			<th>Meldungs-Text</th>
+			<td><span data-ng-bind-html-unsafe="grabbedData.text"></span></td>
+		</tr>
+	</tbody>
+</table>
