@@ -1,7 +1,5 @@
 module.exports = function(grunt) {
 	'use strict';
-	var modRewrite = require('connect-modrewrite');
-
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		uglify: {
@@ -126,10 +124,6 @@ module.exports = function(grunt) {
 				options: {
 					port: 8092,
 					base: 'src',
-					middleware: function(connect, options) {
-						return [modRewrite(['!(.*)\\.html|\\.js|\\.css|\\png|\\jpg|\\gif|\\pdf|\\txt|\\svg|\\ttf|\\woff|\\json$ /index.html']),
-							connect.static(require('path').resolve(options.base))];
-					},
 					keepalive: true
 				}
 			}
@@ -145,7 +139,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-connect-rewrite');
 	grunt.loadNpmTasks('grunt-jsonmin');
 	grunt.loadNpmTasks('grunt-rev');
 	grunt.loadNpmTasks('grunt-usemin');
