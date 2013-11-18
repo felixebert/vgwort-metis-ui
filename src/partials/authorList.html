@@ -1,0 +1,26 @@
+<h1>Autoren</h1>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Vorname</th>
+			<th>Nachname</th>
+			<th>Karteinummer</th>
+			<th class="column-created-at">erfasst am</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="author in authors">
+			<td><a href="author/{{author.id}}">{{author.firstname}}</a></td>
+			<td>{{author.lastname}}</td>
+			<td>{{author.cardNumber}}</td>
+			<td>{{author.createdAt | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Unbekannte Autorennamen</h2>
+<ul data-ng-repeat="author in unknownAuthors" data-ng-show="unknownAuthors.length">
+	<li>{{author}}</li>
+</ul>
+<p data-ng-hide="unknownAuthors.length">keine</p>

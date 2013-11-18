@@ -127,7 +127,7 @@ module.exports = function(grunt) {
 					port: 8092,
 					base: 'src',
 					middleware: function(connect, options) {
-						return [modRewrite(['!\\.html|\\.js|\\.css|\\png|\\jpg|\\gif|\\pdf|\\txt|\\json$ /index.html']),
+						return [modRewrite(['!(.*)\\.html|\\.js|\\.css|\\png|\\jpg|\\gif|\\pdf|\\txt|\\svg|\\ttf|\\woff|\\json$ /index.html']),
 							connect.static(require('path').resolve(options.base))];
 					},
 					keepalive: true

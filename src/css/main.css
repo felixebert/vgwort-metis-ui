@@ -4,13 +4,20 @@ body {
 .content {
 	padding-top: 10px;
 }
-
+.content h1 {
+	margin: 0 0 0.5em;
+}
 .content h2 {
-	margin: 1em 0 0.5em;
+	margin: 2em 0 0.5em;
+	font-size: 20px;
 }
 .table-close-columns {
 	width: auto;
 }
 .column-created-at {
 	width: 155px;
+}
+.author-form {
+	max-width: 500px;
+	margin: 0 auto;
 }

@@ -1,0 +1,23 @@
+<div class="author-form">
+	<form data-ng-submit="submit()">
+		<div class="form-group">
+			<label for="alias">Alias</label>
+			<input type="text" class="form-control" id="alias" data-ng-model="author.alias" placeholder="Wie wird der Autor auf der Webseite genannt?">
+		</div>
+		<div class="form-group">
+			<label for="firstname">Vorname</label>
+			<input type="text" class="form-control" id="firstname" data-ng-model="author.firstname">
+		</div>
+		<div class="form-group">
+			<label for="lastname">Nachname</label>
+			<input type="text" class="form-control" id="lastname" data-ng-model="author.lastname">
+		</div>
+		<div class="form-group">
+			<label for="cardNumber">Karteinummer</label>
+			<input type="text" class="form-control" id="cardNumber" data-ng-model="author.cardNumber" placeholder="VG-WORT Karteinummer (falls vorhanden)">
+		</div>
+		
+		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Speichern</button>
+		<button type="button" class="btn btn-danger" data-ng-click="remove()" data-ng-hide="isNew"><span class="glyphicon glyphicon-trash"></span> Löschen</button>
+	</form>
+</div>
